@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google</title>
+    <style>
+        body {
+            text-align: center;
+            /* font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell; */
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+        }
+        .logo {
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell;
+            font-size: 70pt;
+            font-weight: 600;
+            letter-spacing: -0.14em;
+            margin-bottom: 0.35em;
+        }
+        .blue {
+            color: #4187EF;
+        }
+        .red {
+            color: #ED463E;
+        }
+        .orange {
+            color: #FBBC39;
+        }
+        .green {
+            color: #39A859;
+        }
+        .searchbox-container {
+            position: relative;
+            display: inline;
+        }
+        .searchbox {
+            font-size: 15pt;
+            width: 65vw;
+            max-width: 22em;
+            height: 1em;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            padding-left: 2em;
+            padding-right: 2em;
+            border: 1px solid lightgrey;
+            border-radius: 0.5em;
+        }
+        input:focus  {
+            outline: none;
+        }
+        .searchbox-icon {
+            position: absolute;
+            left: 0.5em;
+            top: -5px;
+            filter: saturate(0);
+            opacity: 30%;
+        }
+        .searchbox-mic {
+            position: absolute;
+            right: 0.5em;
+            top: -5px;
+            filter: saturate(0);
+            opacity: 30%;
+        }
+        .buttons {
+            margin-top: 2em;
+        }
+        button {
+            background-color: #F8F9FA;
+            padding: 0.75em;
+            border: none;
+            border-radius: 0.5em;
+            margin: 0.3em
+        }
+        .pointer {
+            cursor: pointer;
+        }
+        .results-header {
+            display: flex;
+            background-color: #F8F9FA;
+            border: 1px solid #E5E5E5;
+            padding: 0.4em;
+            height: 2.5em;
+        }
+        .search-selector {
+            display: flex;
+            overflow: hidden;
+            justify-content: center;
+            color: #777777;
+            font-weight: 500;
+            border-bottom: 1px solid #EBEBEB;
+        }
+        .search-selector > div {
+            padding-top: 1.7em;
+            padding-bottom: 1.7em;
+            cursor: pointer;
+        }
+        .search-selector > div:first-child {
+            padding-left: 1%;
+            margin-left: 4%;
+        }
+        .search-selector > div {
+            padding-right: 1%;
+            margin-right: 4%;
+
+        }
+        .search-selector-selected {
+            border-bottom: #4187EF 3px solid;
+            color: #4187EF;
+            font-weight: 700;
+        }
+        .logo-small {
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell;
+            min-width: 4.5em;
+            width: 4.5em;
+            font-size: 18pt;
+            font-weight: 600;
+            letter-spacing: -0.13em;
+            cursor: pointer;
+        }
+        .searchbox-container-small {
+            position: relative;
+            width: 100%;
+            display: flex;
+            margin-left: 0.6em;
+        }
+        .searchbox-small {
+            font-size: 15pt;
+            flex-grow: 1;
+            height: 1em;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            padding-left: 2em;
+            padding-right: 2em;
+            border: 1px solid #EBEBEB;
+            border-radius: 0.5em;
+        }
+        .searchbox-icon-small {
+            position: absolute;
+            left: 0.5em;
+            top: 0.4em;
+            filter: saturate(0);
+            opacity: 30%;
+        }
+        .searchbox-mic-small {
+            position: absolute;
+            right: 0.5em;
+            top: 0.4em;
+            filter: saturate(0);
+            opacity: 30%;
+        }
+        .results {
+            text-align: left;
+            width: 80%;
+            margin-right: auto;
+            margin-left: auto;
+            padding: 2em;
+            padding-top: 1em;
+        }
+        .results-count {
+            margin-top: 1em;
+            text-align: left;
+            color: #888888;
+        }
+        .result {
+            margin-top: 1.7em;
+            cursor: pointer;
+        }
+        .results a {
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 500;
+            margin-bottom: 2em;
+        }
+        .small {
+            font-size: 14px
+        }
+        .result-description {
+            margin-top: 0.3em;
+        }
+        @media (min-width: 576px) {
+            .container, .container-sm {
+                max-width: 540px;
+            }
+        }
+        @media (min-width: 768px) {
+            .container, .container-md, .container-sm {
+                max-width: 720px;
+            }
+        }
+        @media (min-width: 992px) {
+            .container, .container-lg, .container-md, .container-sm {
+                max-width: 960px;
+            }
+        }
+        @media (min-width: 1200px) {
+            .container, .container-lg, .container-md, .container-sm, .container-xl {
+                max-width: 1140px;
+            }
+        }
+        @media (min-width: 1400px) {
+            .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+                max-width: 1320px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="search-page">
+        <p class="logo">
+            <span class="blue">G</span>
+            <span class="red">o</span>
+            <span class="orange">o</span>
+            <span class="blue">g</span>
+            <span class="green">l</span>
+            <span class="red">e</span>
+        </p>
+        <p>
+            <div class="searchbox-container">
+                <input class="searchbox" type="text" autofocus>
+                <span class="searchbox-icon">🔍</span>
+                <span class="searchbox-mic">🎤</span>
+            </div>
+        </p>
+        <p class="buttons">
+            <button class="pointer" onclick="showResults()">Google Search</button>
+            <button class="pointer">I'm Feeling Lucky</button>
+        </p>
+    </div>
+    <div id="results-page" style="display: none;">
+        <div class="results-header">
+            <div class="logo-small">
+                <span class="blue">G</span>
+                <span class="red">o</span>
+                <span class="orange">o</span>
+                <span class="blue">g</span>
+                <span class="green">l</span>
+                <span class="red">e</span>
+            </div>
+            <div class="searchbox-container-small">
+                <input class="searchbox-small" type="text" value="potatoes" autofocus>
+                <span class="searchbox-icon-small">🔍</span>
+                <span class="searchbox-mic-small">🎤</span>
+            </div>
+        </div>
+        <div class="search-selector">
+            <div class="search-selector-selected">Web</div>
+            <div>News</div>
+            <div>Images</div>
+            <div>Shopping</div>
+            <div>Videos</div>
+            <div>More</div>
+        </div>
+        <div id="results-container" class="results container">
+            <div class="results-count">
+                About 239,000 results (0.76 seconds)
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // renderResults()
+        // showResults()
+
+        function showResults() {
+            renderResults()
+            document.getElementById("search-page").style.display = "none";
+            document.getElementById("results-page").style.display = "block";
+        }
+
+        function renderResults() {
+            const results = [{"pageText":"The <b>potato</b> is a root vegetable native to the Americas, a starchy tuber of the plant Solanum tuberosum, and the plant itself is a perennial in the nightshade family, Solanaceae.","pageTitle":"Potatoes - Wikipedia","pageUrl":"https://en.wikipedia.org/wiki/Potato"},{"pageText":"<b>Potatoes</b> are a versatile, comforting and nutritious vegetable that is a staple the world over.","pageTitle":"All About Potatoes - Potato Goodness","pageUrl":"https://www.potatogoodness.com/all-about-potatoes/"},{"pageText":"Learn how to plant, grow, and harvest <b>potatoes</b> in your garden! Everything you need to know about planting <b>potatoes</b>, growing potato plants, and harvesting.","pageTitle":"Potatoes: Planting, Growing, and Harvesting Potato Plants | The Old Farmer's Almanac","pageUrl":"https://www.almanac.com/plant/potatoes"},{"pageText":"<b>Potatoes</b> are a good source of vitamins and minerals, and they can be a healthy addition to your diet when prepared properly.","pageTitle":"Potatoes - Healthline","pageUrl":"https://www.healthline.com/nutrition/foods/potatoes"},{"pageText":"Find the best <b>potato</b> recipes, including mashed <b>potatoes</b>, roasted <b>potatoes</b>, scalloped <b>potatoes</b>, and more.","pageTitle":"Potato Recipes - Allrecipes.com","pageUrl":"https://www.allrecipes.com/recipes/2204/fruits-and-vegetables/vegetables/potatoes/"},{"pageText":"Learn about the different types of <b>potatoes</b> for cooking and find out which varieties are best to use. Plus, discover tasty, easy recipes with <b>potatoes</b>.","pageTitle":"Types of Potatoes | Better Homes & Gardens","pageUrl":"https://www.bhg.com/gardening/vegetable/vegetables/types-of-potatoes/"},{"pageText":"Learn how to store <b>potatoes</b> properly to keep them fresh and prevent spoilage. Tips on storing <b>potatoes</b>, including the best temperature and conditions.","pageTitle":"How to Store Potatoes - The Spruce Eats","pageUrl":"https://www.thespruceeats.com/how-to-store-potatoes-4684013"},{"pageText":"Nutritional information for <b>potatoes</b>, including calories, vitamins, minerals, and more.","pageTitle":"Potatoes - USDA FoodData Central","pageUrl":"https://fdc.nal.usda.gov/fdc-app.html#/food-details/336296/nutrients"},{"pageText":"Discover the different types of <b>potatoes</b> and how to cook them, plus top <b>potato</b> recipes.","pageTitle":"Potatoes - BBC Good Food","pageUrl":"https://www.bbcgoodfood.com/glossary/potato"},{"pageText":"Learn how to grow <b>potatoes</b> in your garden with Thompson & Morgan.","pageTitle":"How to Grow Potatoes | Thompson & Morgan - T&M","pageUrl":"https://www.thompson-morgan.com/grow-potatoes"},{"pageText":"Planting <b>potatoes</b> is easy and fun! Learn how to plant, grow, and harvest <b>potatoes</b> in your garden.","pageTitle":"Potatoes: Planting and Growing Guide - The Old Farmer's Almanac","pageUrl":"https://www.almanac.com/planting-potatoes"},{"pageText":"The North Dakota Department of Agriculture provides information on <b>potato</b> crops, including varieties, planting, and production.","pageTitle":"Potatoes - Crops - Department of Agriculture","pageUrl":"https://www.nd.gov/ndda/crops/potatoes"},{"pageText":"HuffPost's latest coverage of <b>potatoes</b>, including recipes, news, and entertainment.","pageTitle":"Potatoes - HuffPost","pageUrl":"https://www.huffpost.com/entertainment/topic/potatoes"},{"pageText":"Learn how to plant, grow, and harvest <b>potatoes</b> in your garden with The Old Farmer's Almanac.","pageTitle":"Potatoes: Planting and Growing - The Old Farmer's Almanac","pageUrl":"https://www.almanac.com/potatoes-planting-and-growing"},{"pageText":"Planting <b>potatoes</b> is easy and fun! Learn how to plant, grow, and harvest <b>potatoes</b> in your garden.","pageTitle":"Potatoes: Planting and Growing Guide - The Old Farmer's Almanac","pageUrl":"https://www.almanac.com/planting-potatoes"},{"pageText":"HuffPost's latest coverage of <b>potatoes</b>, including recipes, news, and entertainment.","pageTitle":"Potatoes - HuffPost","pageUrl":"https://www.huffpost.com/entertainment/topic/potatoes"},{"pageText":"Explore different <b>potato</b> varieties and their unique characteristics, perfect for various culinary uses.","pageTitle":"Potato Varieties - Potato Goodness","pageUrl":"https://www.potatogoodness.com/varieties/"},{"pageText":"Learn about the nutritional value, health benefits, and potential risks of <b>potatoes</b>.","pageTitle":"Potatoes - Nutritional Value, Health Benefits and Risks - HealthifyMe","pageUrl":"https://www.healthifyme.com/blog/potatoes-nutritional-value-health-benefits/"},{"pageText":"Potato research and resources from Oregon State University, including growing and storage information.","pageTitle":"Potatoes - Oregon State University","pageUrl":"https://horticulture.oregonstate.edu/potatoes"},{"pageText":"Information on <b>potatoes</b> as one of the world's healthiest foods, including preparation and cooking tips.","pageTitle":"Potatoes - The World's Healthiest Foods","pageUrl":"http://www.whfoods.com/genpage.php?tname=foodspice&dbid=48"}];
+            
+            const resultsContainer = document.getElementById("results-container")
+
+            for (result of results) {
+                resultHtml = `
+                <div class="result">
+                    <div>
+                        <a href="${result.pageUrl}">${result.pageTitle}</a>
+                    </div>
+                    <div>
+                        <span class="green small">
+                            ${result.pageUrl}
+                        </span>
+                    </div>
+                    <div class="result-description">
+                        <span class="small">${result.pageText}</span>
+                    </div>
+                </div>
+                `;
+
+                resultsContainer.innerHTML += resultHtml;
+            }
+        }
+    </script>
+</body>
+</html>
